@@ -2,15 +2,18 @@
 #define __NBBOT_HH__
 
 #include "NBGame.hh"
-#include <vector>
 
 class NBBot
 {
   private:
-  int cur;
+  int gameResult;
+  long long gameResultAcc;
+  int gameCount;
 
   public:
   void initBot();
+  int getResult();
+  double getAverage();
   int playGame(NBGame &game, bool dispTurn, bool dispRes);
 };
 
