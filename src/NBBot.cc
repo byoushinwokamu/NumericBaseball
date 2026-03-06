@@ -39,10 +39,9 @@ int NBBot::playGame(NBGame &game, bool dispTurn, bool dispRes)
   constexpr int cc2[] = {2, 5, 8, 4, 5, 6, 5, 5, 3, 7};
   constexpr int cc3[] = {3, 6, 9, 7, 8, 9, 9, 3, 6, 9};
 
-  for (int i = 0; i < 10; i++)
+  for (int i = 0; i < 8; i++)
   {
     c1 = cc1[i], c2 = cc2[i], c3 = cc3[i];
-    // if ((can[0][c1] && can[1][c2] && can[2][c3])) continue;
     game.playTurn(c1, c2, c3);
     DISPTURN;
     if (game.getStrike() == 3)
