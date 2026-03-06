@@ -1,17 +1,25 @@
 #include "NBGame.hh"
 
-#include <cstdlib>
-#include <ctime>
+#include <random>
 
 using namespace std;
 
 void NBGame::initGame()
 {
-  srand(time(NULL));
-  turn = 0;
-  answer[0] = rand() % 9 + 1;
-  answer[1] = rand() % 9 + 1;
-  answer[2] = rand() % 9 + 1;
+  random_device rd;
+  mt19937 gen(rd());
+  uniform_int_distribution<int> dis(1, 9);
+
+  turn = strike = ball = 0;
+  answer[0] = dis(gen);
+  do
+  {
+    answer[1] = dis(gen);
+  } while (answer[0] == answer[1]);
+  do
+  {
+    answer[2] = dis(gen);
+  } while (answer[0] == answer[2] || answer[1] == answer[2]);
 }
 
 bool NBGame::playTurn(int a, int b, int c)
