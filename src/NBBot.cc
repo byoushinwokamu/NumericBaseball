@@ -35,9 +35,13 @@ int NBBot::playGame(NBGame &game, bool dispTurn, bool dispRes)
   initBot();
   vector<vector<bool>> can(3, vector<bool>(10, true));
   int c1 = 1, c2 = 2, c3 = 3;
+  constexpr int cc1[] = {1, 4, 7, 1, 2, 3};
+  constexpr int cc2[] = {2, 5, 8, 4, 5, 6};
+  constexpr int cc3[] = {3, 6, 9, 7, 8, 9};
 
-  for (int i = 0; i < 3; i++)
+  for (int i = 0; i < 6; i++)
   {
+    c1 = cc1[i], c2 = cc2[i], c3 = cc3[i];
     game.playTurn(c1, c2, c3);
     DISPTURN;
     if (game.getStrike() == 3)
@@ -92,7 +96,6 @@ int NBBot::playGame(NBGame &game, bool dispTurn, bool dispRes)
       can[1][c1] = can[1][c2] = can[1][c3] = false;
       can[2][c1] = can[2][c2] = can[2][c3] = false;
     }
-    c1 += 3, c2 += 3, c3 += 3;
   }
   for (int i = 1; i <= 9; i++)
   {
