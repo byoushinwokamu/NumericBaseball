@@ -17,8 +17,12 @@ int main()
   cin >> games;
   bot.initBot();
   for (int i = 0; i < games; i++)
+  {
+    game.initGame();
     acc += bot.playGame(game, false, false);
+  }
 
+  // cout << "Average try: " << bot.getResult();
   cout << "Average try: " << (double)acc / games;
 
   return 0;
