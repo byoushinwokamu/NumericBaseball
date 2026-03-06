@@ -2,6 +2,7 @@
 #define __NBBOT_HH__
 
 #include "NBGame.hh"
+#include <vector>
 
 class NBBot
 {

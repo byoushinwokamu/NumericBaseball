@@ -12,12 +12,14 @@ int main()
   NBBot bot;
   ll acc = 0;
 
-  constexpr int games = 10000;
+  int games;
+  cout << "Games to play? ";
+  cin >> games;
   bot.initBot();
   for (int i = 0; i < games; i++)
     acc += bot.playGame(game, false, false);
 
-  cout << (double)acc / games;
+  cout << "Average try: " << (double)acc / games;
 
   return 0;
 }
