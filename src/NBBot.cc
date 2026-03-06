@@ -5,16 +5,6 @@
 
 using namespace std;
 
-void NBBot::initBot()
-{
-  gameResult = 0;
-  gameResultAcc = 0;
-  gameCount = 0;
-}
-
-int NBBot::getResult() { return gameResult; }
-double NBBot::getAverage() { return static_cast<double>(gameResultAcc) / static_cast<double>(gameCount); }
-
 static void displayTurn(NBGame &game)
 {
   cout << "In Turn " << game.getTurn() << '\n';
@@ -32,7 +22,6 @@ static void displayResult(NBGame &game)
 
 int NBBot::playGame(NBGame &game, bool dispTurn, bool dispRes)
 {
-  initBot();
   vector<vector<bool>> can(3, vector<bool>(10, true));
   int c1 = 1, c2 = 2, c3 = 3;
   constexpr int cc1[] = {1, 4, 7, 1, 2, 3, 1, 7, 1, 4};

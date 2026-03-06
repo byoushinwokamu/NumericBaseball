@@ -6,14 +6,7 @@
 class NBBot
 {
   private:
-  int gameResult;
-  long long gameResultAcc;
-  int gameCount;
-
   public:
-  void initBot();
-  int getResult();
-  double getAverage();
   int playGame(NBGame &game, bool dispTurn, bool dispRes);
 };
 
